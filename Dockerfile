@@ -11,7 +11,7 @@ RUN yum install -y jq
 RUN yum install -y supervisor
 
 RUN rpm -Uvh https://mirrors.ripple.com/ripple-repo-el7.rpm
-RUN yum install -y --enablerepo=ripple-stable rippled-0.30.1_hf2
+RUN yum install -y --enablerepo=ripple-stable rippled
 
 RUN mkdir -p /var/log/supervisor
 
