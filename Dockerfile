@@ -15,9 +15,6 @@ RUN yum install -y --enablerepo=ripple-stable rippled
 
 RUN mkdir -p /var/log/supervisor
 
-EXPOSE 51235
-EXPOSE 6006
-
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY init_config_volume.sh ./
 COPY init_data_volume.sh ./
