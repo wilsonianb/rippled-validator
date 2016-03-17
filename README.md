@@ -8,7 +8,7 @@ Docker image for running an auto-updating rippled validator.
 
 - [docker](https://docs.docker.com/engine/installation/)
 
-## Run
+## Build && Run
 
 ```
 ./run_validator.sh
@@ -20,14 +20,19 @@ Docker image for running an auto-updating rippled validator.
 docker exec rippled-validator /opt/ripple/bin/rippled <command>
 ```
 
+## Run rippled tests
+
+```
+docker run local/rippled-validator /opt/ripple/bin/rippled --unittest
+docker run --workdir /opt/ripple/rippled local/rippled-validator npm test
+```
+
 ## Update rippled
 
-Change `ripple-stable` to `ripple-nightly` in the Dockerfile.
+Modifying the Dockerfile and rebuilding the image will prompt watchtower to update and and restart the validator container.
 
-Then run:
+How to rebuild image:
 
 ```
 docker build -t local/rippled-validator .
 ```
-
-The validator will updated to the latest nightly build.

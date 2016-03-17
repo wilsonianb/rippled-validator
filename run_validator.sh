@@ -14,7 +14,7 @@ docker create -v /var/lib/rippled --name rippled-data centos:latest
 # Build and run local rippled-validator image
 docker build -t local/rippled-validator .
 docker run \
-  --name rippled-validator -d\
+  --name rippled-validator -d \
   -p 127.0.0.1:51235:51235 \
   --volumes-from rippled-config --volumes-from rippled-data \
   local/rippled-validator
